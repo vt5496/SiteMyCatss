@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перечень котов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #f2f2f2;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .zagolovok {
+            text-align: center;
+            font: 18pt Tahoma;
+
+        }
+
+        .text {
+            text-align: center;
+            font: 14pt Tahoma;
+        }
+
+        .textSkill {
+            text-align: center;
+            font-family: sans-serif;
+            color: #c9cccb;
+        }
+
+        .textWhereFrom {
+            text-align: center;
+            font: 17px sans-serif;
+            font-weight: 600;
+            margin: 3px 0 0px 0;
+            color: #a1a1bb;
+        }
+
+        .textSkills {
+            text-align: left;
+            font: 9pt Times Trebuchet MS, sans-serif;
+            padding: 20px 0 0 15px;
+            color: #abaead;
+            font-weight: bold;
+            }
+
+        .textPositionMan {
+            text-align: center;
+            font: 13pt  sans-serif;
+            margin: 12px 70px;
+            color: #8984a8;
+
+        }
+
+        .textask {
+            font: 10pt Tahoma;
+            margin: 0 0 0 5px;
+            font-weight: bold;
+
+        }
+
+        .h1 {
+            font: 40pt Tahoma;
+            font-weight: bold;
+            background: rgb(255,119,0);
+            background: linear-gradient(90deg, rgba(255,119,0,1) 0%, rgba(249,3,3,1) 43%, rgba(124,0,255,1) 100%); -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            color: transparent;
+        }
+
+        button.new {
+            background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+            padding: 15px 30px;
+            color: #333;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            border: 1px solid #666;
+            font: 14pt Tahoma;
+            font-weight: 600;
+        }
+
+        .nameCat {
+            color: red;
+            font-weight: bold;
+        }
+
+        .Wraper {
+            padding: 15px;
+            margin: 0 auto;
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+        }
+
+        vlavlavla
+        .divimg {
+
+        }
+
+        .divimg  >  .img {
+
+        }
+
+        .Wraper2 {
+            padding: 0px;
+            margin: 0 auto;
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #vseKoti {
+            display: flex;
+            flex-direction: row;
+            margin: -15px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #odinKot9 {
+            display: flex;
+            flex-direction: row;
+            margin: -15px;
+            width: 40%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cat {
+            position: relative;
+            box-sizing: border-box;
+            margin: 15px;
+            width: 30%;
+            background: #231f3a;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+           align-items: center;
+
+        }
+
+        .buttonsOfMan {
+             display: flex;
+             flex-direction: row;
+             width: 80%;
+             flex-wrap: wrap;
+             justify-content: center;
+             margin: 0 0 25px 0;
+         }
+
+         .buttonOfMan {
+             box-sizing: border-box;
+            width: 40%;
+            background-color: transparent;
+            color: #7d2685;
+            font-family: sans-serif;
+             font-size: 18px;
+             font-weight: 500;
+            padding: 10px 6px;
+            margin: 5px;
+            border: 2px solid #7d2685;
+            border-radius: 3px;
+            cursor: pointer;
+             transition: all;
+             transition-duration: 0.2s;
+        }
+        .buttonOfMan:hover{
+            background-color: #c500d6;
+            color: white;
+            border-color: #c500d6;
+        }
+
+        .imgCenter {
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            margin: 40px 0 10px 0;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #7d2685;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .proClass {
+            position: absolute;
+            left:30px ;
+            top:30px;
+            padding: 3px 8px;
+            background-color: #feb902;
+            color: black;
+            font: 16px Trebuchet MS, sans-serif;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .imgCenter > .img {
+            object-fit: cover;
+            width: 100%;
+            border-radius: 50%;
+            }
+
+
+        .cat > .zagolovok {
+            padding:  0 20px 0 20px;
+            margin: 0;
+            font: 25px 500 sans-serif;
+            color: #aeabc8;
+            font-weight: bold;
+            }
+
+        .onecat {
+            box-sizing: border-box;
+            margin: 15px;
+            width: 100%;
+            background-color: whitesmoke;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+            overflow: hidden;
+        }
+
+        .onecat > .zagolovok {
+                        background: linear-gradient(90deg, rgba(61, 1, 139, 1) 0%, rgba(136, 4, 223, 1) 35%, rgba(35, 197, 230, 1) 100%);
+            padding: 20px;
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .skillsPage {
+            background: #1f1b36;
+            border-radius: 20px;
+        }
+
+        .properties {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex: 1;
+            justify-content: left;
+            padding: 0 15px 20px 15px;
+            margin: 10px 0 0 0;
+        }
+
+        .properties > .TextSkill {
+            width: auto;
+            border-radius: 5px;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font: 10pt Times New Roman, serif;
+            color: #a0a5a0;
+            border: 1px solid #62375d;
+            margin: 0 5px 10px 5px;
+        }
+
+
+        @media (max-width: 1200px) {
+            .Wraper {
+                width: 800px;
+            }
+
+            .Wraper2 {
+                width: 800px;
+            }
+
+            .cat {
+                width: 100%;
+            }
+
+            .onecat {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .Wraper {
+                width: 600px;
+            }
+
+            .Wraper2 {
+                width: 600px;
+            }
+
+            .cat {
+                width: 45%;
+            }
+
+            .onecat {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .Wraper {
+                width: 100%;
+                padding: 0;
+            }
+
+            .Wraper2 {
+                width: 100%;
+                padding: 0;
+            }
+
+            .cat {
+                width: 100%;
+            }
+
+            .onecat {
+                width: 100%;
+            }
+        }
+
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 2px 0 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .buttonNew {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .buttonNewSkrit {
+            width: 100%;
+            background-color: #ff0000;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .buttonNewSkrit {
+            background-color: #ff0000;
+        }
+
+        .inputText {
+            border-radius: 5px;
+            background-color: #fdf2ff;
+            padding: 15px;
+            margin: 0 auto;
+            width: 300px;
+            justify-content: center;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+
+        }
+
+        .center {
+            text-align: center;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            border: 3px solid #ccc;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #fafff4;
+            font: 13px Tahoma;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+
+    //массив с кисями
+    let cat = [
+        {
+            img: 'https://d2hhj3gz5jljkm.cloudfront.net/wallpapers2/037/326/900/736/original/GCvmJ72UU1U.jpg',
+            name: 'Vladik',
+            whereFrom: 'UKraine. Z.P.',
+            positionMan: 'Manager, user interface and very good man',
+            color: 'Black',
+            poroda: 'cot9',
+            gender: "Malchik",
+            weight: "65kg",
+            skills:["UI/UX",'FrontEnd Development']
+        }
+    ];
+
+    //создать кисю и скрыть это меню
+
+    let addKisa = function () {
+        document.getElementById('newKot9').hidden = false;
+    };
+    let skritAddKisa = function () {
+        document.getElementById('newKot9').hidden = true;
+    };
+    let newCat = function () {
+        cat[cat.length++] = {
+            img: document.getElementById('imgCat').value,
+            color: document.getElementById('newColor').value,
+            poroda: document.getElementById('newPoroda').value,
+            name: document.getElementById('newName').value,
+            gender: document.getElementById('newGender').value,
+            weight: document.getElementById('newWeight').value
+        };
+        confirm(
+            "Вы создали котика №" + cat.length +
+            "\r\nИмя: " + cat[cat.length - 1].name +
+            "\r\nПорода: " + cat[cat.length - 1].poroda +
+            "\r\nЦвет: " + cat[cat.length - 1].color +
+            "\r\nВес: " + cat[cat.length - 1].weight +
+            "\r\nГендер: " + cat[cat.length - 1].gender +
+            "\r\nВы действительно хотите добавить котика?")
+    };
+
+    //показать и скрыть меню где вводиться номер одного котика чтобы его показать
+    let addCatClicked = false;
+    let openMenuOpenCat  = function() {
+        document.getElementById('openCat').hidden = false;
+        document.getElementById('odinKot9').innerHTML = '';
+    };
+    let skritOpenMenuOpenCat = function () {
+        document.getElementById('openCat').hidden = true;
+    };
+
+    //вывести кисю по номеру
+
+
+    let openCatF = function () {
+        document.getElementById('openCat').hidden = true;
+        let root2 = document.getElementById('odinKot9');
+
+            addCatClicked = true;
+            let nomerKisi = document.getElementById("numberCat").value - 1;
+            let element = document.createElement('div');
+            element.className = 'onecat';
+
+            let properties = document.createElement("div");
+            properties.className = 'properties';
+
+            let name = document.createElement('div');
+            name.innerText = " Имя " + cat[nomerKisi].name;
+            name.className = 'zagolovok';
+
+            let color = document.createElement("div");
+            color.innerText = " Цвет: " + cat[nomerKisi].color;
+            color.className = 'TextSkill';
+
+            let poroda = document.createElement("div");
+            poroda.innerText = " Порода: " + cat[nomerKisi].poroda;
+            poroda.className = 'TextSkill';
+
+            let gender = document.createElement("div");
+            gender.innerText = " Гендер: " + cat[nomerKisi].gender;
+            gender.className = 'TextSkill';
+
+            let weight = document.createElement("div");
+            weight.innerText = " Вес: " + cat[nomerKisi].weight;
+            weight.className = 'TextSkill';
+
+
+            element.appendChild(name);
+            properties.appendChild(color);
+            properties.appendChild(poroda);
+            properties.appendChild(gender);
+            properties.appendChild(weight);
+
+            element.appendChild(properties);
+            root2.appendChild(element)
+
+
+
+    };
+
+    //создать изображение и вернуть элемент
+    /*let newImg = addimg;
+    let imgADD = function(newImg)   {
+         imgADD = new Image(100, 200);
+        img.src = 'picture.jpg';
+        console.log(img);
+    }
+*/
+
+    //выведение всех котиков
+    let addCatsClicked = false;
+    let addCats = function () {
+        let root = document.getElementById('vseKoti');
+        if (addCatsClicked) {
+            root.innerHTML = '';
+            addCatsClicked = false;
+        } else {
+            addCatsClicked = true;
+            cat.forEach(cat => {
+
+                let element = document.createElement('div');
+                element.className = 'cat';
+
+                    let imgCenter = document.createElement('div');
+                    imgCenter.className = 'imgCenter'
+
+                        let proClass = document.createElement('div');
+                        proClass.innerText = "PRO";
+                        proClass.className = 'proClass';
+
+                        let imgCat = document.createElement('img');
+                        imgCat.src = cat.img;
+                        imgCat.className = 'img';
+
+                    let name = document.createElement('div');
+                    name.innerText = " Имя " + cat.name;
+                    name.className = 'zagolovok';
+
+                    let whereFrom = document.createElement('div');
+                    whereFrom.innerText = cat.whereFrom;
+                    whereFrom.className = 'textWhereFrom';
+
+                    let positionMan = document.createElement('div');
+                    positionMan.innerText = cat.positionMan;
+                    positionMan.className = 'textPositionMan';
+
+                    let buttonsOfMan = document.createElement('div');
+                    buttonsOfMan.className = 'buttonsOfMan';
+
+                        let follow = document.createElement('button');
+                        follow.innerText = "Follow";
+                        follow.className = 'buttonOfMan';
+
+                        let message = document.createElement('button');
+                        message.innerText = "Message";
+                        message.className = 'buttonOfMan';
+
+                        let profile = document.createElement('button');
+                        profile.innerText = "Profile";
+                        profile.className = 'buttonOfMan';
+
+                    let skillsPage = document.createElement('div');
+                    skillsPage.className =  'skillsPage';
+
+                        let skills = document.createElement('div');
+                        skills.innerText = 'SKILLS';
+                        skills.className = 'textSkills';
+
+                        let properties = document.createElement("div");
+                        properties.className = 'properties';
+
+                            let color = document.createElement("div");
+                            color.innerText = " Цвет: " + cat.color;
+                            color.className = 'TextSkill';
+
+                            let poroda = document.createElement("div");
+                            poroda.innerText = " Порода: " + cat.poroda;
+                            poroda.className = 'TextSkill';
+
+                            let gender = document.createElement("div");
+                            gender.innerText = " Гендер: " + cat.gender;
+                            gender.className = 'TextSkill';
+
+                            let weight = document.createElement("div");
+                            weight.innerText = " Вес: " + cat.weight;
+                            weight.className = 'TextSkill';
+
+
+
+                element.appendChild(proClass);
+                imgCenter.appendChild(imgCat);
+
+                element.appendChild(imgCenter);
+                element.appendChild(name);
+                element.appendChild(whereFrom);
+                element.appendChild(positionMan);
+
+                buttonsOfMan.appendChild(follow);
+                buttonsOfMan.appendChild(message);
+                buttonsOfMan.appendChild(profile);
+
+                element.appendChild(buttonsOfMan);
+                skillsPage.appendChild(skills);
+
+                properties.appendChild(color);
+                properties.appendChild(poroda);
+                properties.appendChild(gender);
+                properties.appendChild(weight);
+
+
+                skillsPage.appendChild(properties);
+
+                element.appendChild(skillsPage);
+
+
+                root.appendChild(element)
+
+            })
+        }
+
+
+    };
+    /*
+    cat=>{
+    }
+    function(cat){
+    }*/
+
+    //количество котиков
+    let kolKotikov = function () {
+        var vivodkolKotikov = document.getElementById("kolKotikov").innerHTML = "Количество котиков: " + cat.length;
+        document.getElementById('skrit2').hidden = false;
+    };
+
+</script>
+
+<h1 class="h1">Создай и покажи своего котика!</h1>
+
+<p class="text">
+    <button class="new" onclick="kolKotikov()">Количество котиков</button>
+</p>
+<p class="text">
+    <button class="new" onclick="addKisa()">Создать котика</button>
+</p>
+
+<div id="newKot9">
+    <div class="inputText">
+        <label class='textask'  for="newName">Имя</label>
+        <input type="text" id="newName" name="firstname" placeholder="Имя..">
+
+        <div class="center">
+        <label class="custom-file-upload">
+            <form enctype="multipart/form-data" method="post">
+            <input id="imgCat" type="file" accept="image/*,image/jpeg"/>
+            </form>
+            <i class="fa fa-cloud-upload"></i> Загрузить фото котика
+        </label>
+        </div>
+
+        <label class='textask' for="newPoroda">Порода</label>
+        <input type="text" id="newPoroda" name="lastname" placeholder="Порода..">
+
+        <label class='textask' for="newColor">Цвет</label>
+        <input type="text" id="newColor" name="lastname" placeholder="Цвет..">
+
+        <label class='textask'  for="newWeight">Вес</label>
+        <input type="text" id="newWeight" name="lastname" placeholder="Вес..">
+
+        <label class='textask' for="newGender">Гендер</label>
+        <select id="newGender" name="country">
+            <option value="male">Выберите пол..</option>
+            <option value="Мальчик">Мальчик</option>
+            <option value="Девочка">Девочка</option>
+        </select>
+
+        <button class="buttonNew" onclick="newCat()">Создать котика</button>
+        <button class="buttonNewSkrit" onclick="skritAddKisa()">Скрыть меню</button>
+    </div>
+</div>
+
+
+<p class="text">
+    <button class="new" onclick="openMenuOpenCat()">Вывести котика</button>
+</p>
+
+<div id="openCat">
+    <div class="inputText">
+        <label class='textask'  for="newName">Номер котика</label>
+        <input type="text" id="numberCat" name="newName" placeholder="Введите значение..">
+
+        <button class="buttonNew" onclick="openCatF()">Показать котика</button>
+        <button class="buttonNewSkrit" onclick="skritOpenMenuOpenCat()">Скрыть меню</button>
+    </div>
+</div>
+
+<!-- вывод одного киси -->
+<div class="Wraper2">
+    <div id="odinKot9">
+    </div>
+</div>
+
+<p class="text">
+    <button class="new" onclick="addCats()">Вывести всех котиков</button>
+</p>
+
+
+<div class="Wraper">
+    <div id="vseKoti">
+    </div>
+</div>
+
+
+<script>
+    //скрыть список
+    document.getElementById('newKot9').hidden = true;
+    document.getElementById('openCat').hidden = true;
+
+</script>
+
+</body>
+</html>
